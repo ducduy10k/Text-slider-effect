@@ -1,0 +1,62 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(#fff, #6cc);
+}
+
+.container {
+    position: relative;
+}
+
+.text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 40pt;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transform: translate(-50%, -50%);
+    animation-name: animate;
+    animation-timing-function: ease;
+    animation-duration: 3s;
+    animation-direction: alternate;
+    animation-delay: calc(var(--i)*3s);
+    visibility: hidden;
+    color: transparent;
+}
+
+@keyframes animate {
+    /* Ví dụ cho chữ chạy từ dưới(bottom) trở lại (bottom) */
+    0% {
+        visibility: visible;
+        filter: blur(20pt);
+        transform: translate(-50%, calc(100px - 50%));
+    }
+    25%,
+    75% {
+        filter: blur(0);
+        color: #000;
+        transform: translate(-50%, -50%);
+    }
+    100% {
+        filter: blur(20pt);
+        transform: translate(-50%, calc(100px - 50%));
+    }
+    /* Advance */
+    /* 
+    top:translate(-50%,calc(-100px - 50%));
+    right:translate(0%,-50%);
+    bottom:translate(-50%,calc(100px - 50%));
+    left:translate(-100%,-50%);
+    mid:translate(-50%,-50%);
+    */
+}
